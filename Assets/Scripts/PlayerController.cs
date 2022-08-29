@@ -1,14 +1,20 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] int _rotationThisFrame = 50;
+    [SerializeField] int _thrustForce = 0;
 
-    public bool rotating;
+    [SerializeField] ParticleSystem _mainThrust;
+    [SerializeField] ParticleSystem _leftThrust;
+    [SerializeField] ParticleSystem _rightThrust;
 
-    int _thrustForce = 0;
+    bool _rotating;
+    bool _thrusting;
+
     int _rotateDirection = 0;
 
     private Rigidbody rb;
@@ -22,31 +28,56 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (rotating)
+        if (_rotating)
         {
             rb.freezeRotation = true;
-            rb.MoveRotation(GetComponent<Rigidbody>().rotation * Quaternion.Euler(_rotateDirection * eulerAngleVelocity * Time.deltaTime));
+            rb.MoveRotation(rb.rotation * Quaternion.Euler(_rotateDirection * eulerAngleVelocity * Time.deltaTime));
+
+            if (_rotateDirection == 1)
+            {
+                if (!_leftThrust.isPlaying)
+                    _leftThrust.Play();
+            }
+            else if (_rotateDirection == -1)
+            {
+                if (!_rightThrust.isPlaying)
+                    _rightThrust.Play();
+            }
+                
             rb.freezeRotation = false;
         }
+        else
+        {
+            _leftThrust.Stop();
+            _rightThrust.Stop();
+        }
 
+        if (_thrusting)
+        {
+            if (!_mainThrust.isPlaying)
+                _mainThrust.Play();
+            rb.AddRelativeForce(Vector3.up * _thrustForce * Time.deltaTime);
+        }
+        else
+        {
+            _mainThrust.Stop();
+        }
 
-        rb.AddRelativeForce(Vector3.up * _thrustForce * Time.deltaTime);
+        print(_rotateDirection);
     }
 
-    public void Thrust(int value)
+    public void SetThrust(bool value)
     {
-        _thrustForce = value;
-        Debug.Log("JUMP");
+        _thrusting = value;
     }
 
-    public void Rotate(int rotateValue)
+    public void SetRotateDirection(int rotateValue)
     {
         _rotateDirection = rotateValue;
-        Debug.Log("ROTATE" + rotateValue);
     }
 
     public void SetRotating(bool value)
     {
-        rotating = value;
+        _rotating = value;
     }
 }
