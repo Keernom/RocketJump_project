@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -33,12 +32,12 @@ public class PlayerController : MonoBehaviour
             rb.freezeRotation = true;
             rb.MoveRotation(rb.rotation * Quaternion.Euler(_rotateDirection * eulerAngleVelocity * Time.deltaTime));
 
-            if (_rotateDirection == 1)
+            if (_rotateDirection == -1)
             {
                 if (!_leftThrust.isPlaying)
                     _leftThrust.Play();
             }
-            else if (_rotateDirection == -1)
+            else if (_rotateDirection == 1)
             {
                 if (!_rightThrust.isPlaying)
                     _rightThrust.Play();
@@ -62,22 +61,11 @@ public class PlayerController : MonoBehaviour
         {
             _mainThrust.Stop();
         }
-
-        print(_rotateDirection);
     }
 
-    public void SetThrust(bool value)
-    {
-        _thrusting = value;
-    }
+    public void SetThrust(bool value) => _thrusting = value;
 
-    public void SetRotateDirection(int rotateValue)
-    {
-        _rotateDirection = rotateValue;
-    }
+    public void SetRotateDirection(int rotateValue) => _rotateDirection = rotateValue;
 
-    public void SetRotating(bool value)
-    {
-        _rotating = value;
-    }
+    public void SetRotating(bool value) => _rotating = value;
 }
