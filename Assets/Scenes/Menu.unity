@@ -1393,6 +1393,10 @@ MonoBehaviour:
   - eventID: 0
     callback:
       m_PersistentCalls:
+        m_Calls: []
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1703536180}
           m_MethodName: LoadScene
