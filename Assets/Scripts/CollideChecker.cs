@@ -15,7 +15,8 @@ public class CollideChecker : MonoBehaviour
         else
         {
             _explosionEffect.Play();
-            FindObjectOfType<PlayerController>().enabled = false;
+            GetComponent<PlayerController>().StopThrusting();
+            GetComponent<PlayerController>().enabled = false;
         }
     }
 }

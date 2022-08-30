@@ -63,6 +63,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void StopThrusting()
+    {
+        _leftThrust.Stop();
+        _rightThrust.Stop();
+        _mainThrust.Stop();
+    }
+
     public void SetThrust(bool value) => _thrusting = value;
 
     public void SetRotateDirection(int rotateValue) => _rotateDirection = rotateValue;
