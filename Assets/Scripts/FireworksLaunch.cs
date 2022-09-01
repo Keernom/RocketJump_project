@@ -11,6 +11,8 @@ public class FireworksLaunch : MonoBehaviour
         {
             finishChild.GetChild(i).GetComponent<ParticleSystem>().Play();
         }
+
+        GetComponent<AudioSource>().Play();
     }
 
     public void SuccessLaunch()

@@ -1540,6 +1540,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66072c42e7f38924f90a2ea3e36cc606, type: 3}
+--- !u!82 &1780567568 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 886399896, guid: ec67e4c37c7944f4b98b5b7190e77a32,
+    type: 3}
+  m_PrefabInstance: {fileID: 1183606735959539970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1799978081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4944559223813419333, guid: 034023ff02a37fc47aab6bc6c49bf15b,
@@ -1848,7 +1854,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2119912123}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd41651816359514599cbc2c032a483b, type: 3}
+  m_Script: {fileID: 11500000, guid: 50361db60d4dcd745906896fcd07fcbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &2119912125
@@ -2043,6 +2049,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 886399896, guid: ec67e4c37c7944f4b98b5b7190e77a32, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 886399896, guid: ec67e4c37c7944f4b98b5b7190e77a32, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 886399896, guid: ec67e4c37c7944f4b98b5b7190e77a32, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1183606736349801626, guid: ec67e4c37c7944f4b98b5b7190e77a32,
         type: 3}
       propertyPath: m_Name
@@ -2108,6 +2126,41 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1183606736986924818, guid: ec67e4c37c7944f4b98b5b7190e77a32,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183606736986924818, guid: ec67e4c37c7944f4b98b5b7190e77a32,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183606736986924818, guid: ec67e4c37c7944f4b98b5b7190e77a32,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1780567568}
+    - target: {fileID: 1183606736986924818, guid: ec67e4c37c7944f4b98b5b7190e77a32,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183606736986924818, guid: ec67e4c37c7944f4b98b5b7190e77a32,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Stop
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183606736986924818, guid: ec67e4c37c7944f4b98b5b7190e77a32,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183606737331857172, guid: ec67e4c37c7944f4b98b5b7190e77a32,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 56
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec67e4c37c7944f4b98b5b7190e77a32, type: 3}
 --- !u!1001 &3202487179315542695
@@ -2117,6 +2170,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1250608775}
     m_Modifications:
+    - target: {fileID: 161166313, guid: fa9f9f3f4f6948e4b9260f867d91f83d, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 161166313, guid: fa9f9f3f4f6948e4b9260f867d91f83d, type: 3}
+      propertyPath: m_Volume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 161166313, guid: fa9f9f3f4f6948e4b9260f867d91f83d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3202487179584535200, guid: fa9f9f3f4f6948e4b9260f867d91f83d,
         type: 3}
       propertyPath: m_RootOrder

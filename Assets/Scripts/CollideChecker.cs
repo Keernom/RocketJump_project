@@ -4,7 +4,11 @@ using UnityEngine.SceneManagement;
 public class CollideChecker : MonoBehaviour
 {
     [SerializeField] ParticleSystem _explosionEffect;
-    [SerializeField] float _loadDelay = 1f;
+    [SerializeField] AudioClip _explosionSound;
+    [SerializeField] AudioClip _successSound;
+    [SerializeField] float _levelLoadDelay = 1f;
+
+    AudioSource _audioSource;
 
     bool _isAlive = true;
     bool _isLanded = false;
@@ -12,23 +16,26 @@ public class CollideChecker : MonoBehaviour
 
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         _sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        print(SceneManager.sceneCountInBuildSettings);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.CompareTag("Start"))
             return;
 
         if (collision.gameObject.CompareTag("Finish") && _isAlive)
         {
+            _audioSource.PlayOneShot(_successSound, 1f);
+
             if (_sceneIndex == SceneManager.sceneCountInBuildSettings - 1)
                 collision.gameObject.transform.GetChild(0).GetComponent<FireworksLaunch>().FinishLaunch();
             else
             {
                 collision.gameObject.transform.GetChild(0).GetComponent<FireworksLaunch>().SuccessLaunch();
-                Invoke("NextLevelLoad", _loadDelay);
+                Invoke("NextLevelLoad", _levelLoadDelay);
             }
 
             _isLanded = true;
@@ -39,6 +46,7 @@ public class CollideChecker : MonoBehaviour
             _explosionEffect.Play();
             GetComponent<PlayerController>().StopThrusting();
             GetComponent<PlayerController>().enabled = false;
+            _audioSource.PlayOneShot(_explosionSound, 1f);
         }
     }
 

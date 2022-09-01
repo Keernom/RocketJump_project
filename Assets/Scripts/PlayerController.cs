@@ -11,17 +11,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] ParticleSystem _leftThrust;
     [SerializeField] ParticleSystem _rightThrust;
 
+    [SerializeField] AudioClip _thrustSound;
+
     bool _rotating;
     bool _thrusting;
 
     int _rotateDirection = 0;
 
     private Rigidbody rb;
+    private AudioSource _audioSource;
+
     private Vector3 eulerAngleVelocity;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        _audioSource = GetComponent<AudioSource>();
         eulerAngleVelocity = new Vector3(0, 0, _rotationThisFrame);
     }
 
@@ -42,7 +47,7 @@ public class PlayerController : MonoBehaviour
                 if (!_rightThrust.isPlaying)
                     _rightThrust.Play();
             }
-                
+
             rb.freezeRotation = false;
         }
         else
@@ -55,6 +60,10 @@ public class PlayerController : MonoBehaviour
         {
             if (!_mainThrust.isPlaying)
                 _mainThrust.Play();
+
+            if (!_audioSource.isPlaying)
+                _audioSource.PlayOneShot(_thrustSound);
+
             rb.AddRelativeForce(Vector3.up * _thrustForce * Time.deltaTime);
         }
         else
@@ -68,6 +77,7 @@ public class PlayerController : MonoBehaviour
         _leftThrust.Stop();
         _rightThrust.Stop();
         _mainThrust.Stop();
+        _audioSource.Stop();
     }
 
     public void SetThrust(bool value) => _thrusting = value;
