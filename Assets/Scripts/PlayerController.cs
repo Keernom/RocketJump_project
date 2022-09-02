@@ -32,6 +32,30 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        ProcessRotate();
+        ProcessThrust();
+    }
+
+    private void ProcessThrust()
+    {
+        if (_thrusting)
+        {
+            if (!_mainThrust.isPlaying)
+                _mainThrust.Play();
+
+            if (!_audioSource.isPlaying)
+                _audioSource.PlayOneShot(_thrustSound);
+
+            rb.AddRelativeForce(Vector3.up * _thrustForce * Time.deltaTime);
+        }
+        else
+        {
+            _mainThrust.Stop();
+        }
+    }
+
+    private void ProcessRotate()
+    {
         if (_rotating)
         {
             rb.freezeRotation = true;
@@ -54,21 +78,6 @@ public class PlayerController : MonoBehaviour
         {
             _leftThrust.Stop();
             _rightThrust.Stop();
-        }
-
-        if (_thrusting)
-        {
-            if (!_mainThrust.isPlaying)
-                _mainThrust.Play();
-
-            if (!_audioSource.isPlaying)
-                _audioSource.PlayOneShot(_thrustSound);
-
-            rb.AddRelativeForce(Vector3.up * _thrustForce * Time.deltaTime);
-        }
-        else
-        {
-            _mainThrust.Stop();
         }
     }
 
