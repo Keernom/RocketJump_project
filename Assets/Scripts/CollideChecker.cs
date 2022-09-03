@@ -26,7 +26,7 @@ public class CollideChecker : MonoBehaviour
         if (collision.gameObject.CompareTag("Start"))
             return;
 
-        if (collision.gameObject.CompareTag("Finish") && _isAlive)
+        if (collision.gameObject.CompareTag("Finish") && _isAlive && !_isLanded)
         {
             _audioSource.PlayOneShot(_successSound, 1f);
 
