@@ -2,6 +2,7 @@
 
 public class PlayerRotateMainMenu : MonoBehaviour
 {
+    [Header("Rotation Settings")]
     [SerializeField] float _anglePerSecond = 1f;
 
     private void Update()

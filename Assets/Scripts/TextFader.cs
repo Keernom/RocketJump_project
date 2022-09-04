@@ -2,35 +2,38 @@
 using UnityEngine;
 using TMPro;
 
+[RequireComponent(typeof(TMP_Text))]
+[RequireComponent(typeof(CanvasRenderer))]
 public class TextFader : MonoBehaviour
 {
+    [Header("Fade Settings")]
     [SerializeField] float _fadeTime = 2;
 
-    TMP_Text text;
-    CanvasRenderer canvas;
+    TMP_Text _text;
+    CanvasRenderer _canvas;
 
     private void Start()
     {
-        text = GetComponent<TMP_Text>();
-        canvas = GetComponent<CanvasRenderer>();
-        StartCoroutine("Fade", _fadeTime);
+        _text = GetComponent<TMP_Text>();
+        _canvas = GetComponent<CanvasRenderer>();
+        StartCoroutine(nameof(Fade), _fadeTime);
     }
 
     public IEnumerator Fade(float time)
     {
         while (true)
         {
-            while (canvas.GetAlpha() > 0.5)
+            while (_canvas.GetAlpha() > 0.5)
             {
-                canvas.SetAlpha(canvas.GetAlpha() - Time.deltaTime / time);
-                text.fontSize -= Time.deltaTime / time * 10; 
+                _canvas.SetAlpha(_canvas.GetAlpha() - Time.deltaTime / time);
+                _text.fontSize -= Time.deltaTime / time * 10; 
                 yield return null;
             }
 
-            while (canvas.GetAlpha() < 1)
+            while (_canvas.GetAlpha() < 1)
             {
-                canvas.SetAlpha(canvas.GetAlpha() + Time.deltaTime / time);
-                text.fontSize += Time.deltaTime / time * 10;
+                _canvas.SetAlpha(_canvas.GetAlpha() + Time.deltaTime / time);
+                _text.fontSize += Time.deltaTime / time * 10;
                 yield return null;
             }
         }

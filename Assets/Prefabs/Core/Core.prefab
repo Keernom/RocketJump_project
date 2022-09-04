@@ -610,6 +610,11 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1183606737331857175}
+    - target: {fileID: 1423322833072181883, guid: a016d023d3572434f84c708b9c46b115,
+        type: 3}
+      propertyPath: _levelDelay
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1423322833338014385, guid: a016d023d3572434f84c708b9c46b115,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -717,6 +722,21 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: e92ebf5180c0b444b84dcb32ff6d4778, type: 3}
     - target: {fileID: 7160642091923620383, guid: 6a8735331aed107448a4fb09b22a7210,
         type: 3}
+      propertyPath: _leftThrustEffect
+      value: 
+      objectReference: {fileID: 4365709409746990087}
+    - target: {fileID: 7160642091923620383, guid: 6a8735331aed107448a4fb09b22a7210,
+        type: 3}
+      propertyPath: _mainThrustEffect
+      value: 
+      objectReference: {fileID: 4420524043070938810}
+    - target: {fileID: 7160642091923620383, guid: 6a8735331aed107448a4fb09b22a7210,
+        type: 3}
+      propertyPath: _rightThrustEffect
+      value: 
+      objectReference: {fileID: 5385710975902047115}
+    - target: {fileID: 7160642091923620383, guid: 6a8735331aed107448a4fb09b22a7210,
+        type: 3}
       propertyPath: _rotationThisFrame
       value: 80
       objectReference: {fileID: 0}
@@ -816,3 +836,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80825b2f0b6225049858ebb5ab7bdcc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!198 &4420524043070938810 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5650444369529732018, guid: 6a8735331aed107448a4fb09b22a7210,
+    type: 3}
+  m_PrefabInstance: {fileID: 8300892798828012808}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4365709409746990087 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5738904886644396303, guid: 6a8735331aed107448a4fb09b22a7210,
+    type: 3}
+  m_PrefabInstance: {fileID: 8300892798828012808}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5385710975902047115 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4147623513583107715, guid: 6a8735331aed107448a4fb09b22a7210,
+    type: 3}
+  m_PrefabInstance: {fileID: 8300892798828012808}
+  m_PrefabAsset: {fileID: 0}

@@ -3,13 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class ButtonSceneLoader : MonoBehaviour
 {
-    [SerializeField] float _levelDelay = 1f;
+    [Header("Level Load Settings")]
+    [SerializeField] float _levelLoadDelay = 1f;
+
     int _index = 0;
 
     public void LoadScene(int buildIndex)
     {
         _index = buildIndex;
-        Invoke("Load", _levelDelay);
+        Invoke(nameof(Load), _levelLoadDelay);
     }
 
     public void Load()

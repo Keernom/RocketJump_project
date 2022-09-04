@@ -5,7 +5,7 @@ public class FireworksLaunch : MonoBehaviour
 {
     public void FinishLaunch()
     {
-        StartCoroutine("InfiniteLaunch");
+        StartCoroutine(nameof(InfiniteLaunch));
     }
 
     IEnumerator InfiniteLaunch()
